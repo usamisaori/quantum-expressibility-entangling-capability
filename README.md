@@ -19,3 +19,5 @@ def expressibility(qubits, sampler, *, bins=100, epoch=3000, layer=1, encode=Fal
 def Ent(sampler, *, epoch=3000, layer=1):
     ...
 ```
+
++ `/experiments`: Calculation Experiments
