@@ -20,4 +20,5 @@ def Ent(sampler, *, epoch=3000, layer=1):
     ...
 ```
 
-+ `/experiments`: Calculation Experiments
++ `/experiments`: Calculation Experiments.
++ `/plot`: plot results.
