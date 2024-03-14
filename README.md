@@ -5,3 +5,10 @@ Quantum expressibility and entangling capability calculation algorithm implement
 ## Index
 
 + `/circuits`: sample VQC structures.
++ `/expressibility`: Quantum Expressibility Calculation Algorithm.
+
+```python
+def expressibility(qubits, sampler, *, bins=100, epoch=3000, layer=1, encode=False, return_detail=False):
+    ...
+    # in which sampler(layer=layer, qubits=qubits)
+```
