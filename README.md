@@ -12,3 +12,10 @@ def expressibility(qubits, sampler, *, bins=100, epoch=3000, layer=1, encode=Fal
     ...
     # in which sampler(layer=layer, qubits=qubits)
 ```
+
++ `/entanglement`: Quantum Entanglement Capability calculation algorithm.
+
+```python
+def Ent(sampler, *, epoch=3000, layer=1):
+    ...
+```
