@@ -4,4 +4,4 @@ Quantum expressibility and entangling capability calculation algorithm implement
 
 ## Index
 
-+ `circuits.ipynb`: sample VQC structures.
++ `/circuits`: sample VQC structures.
