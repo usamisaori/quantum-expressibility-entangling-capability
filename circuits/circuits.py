@@ -28,9 +28,9 @@ warnings.filterwarnings('ignore')
 # In[4]:
 
 
-theta = Parameter("θ")
-phi = Parameter("φ")
-lamb = Parameter("λ")
+# theta = Parameter("θ")
+# phi = Parameter("φ")
+# lamb = Parameter("λ")
 
 
 # ## 1.1 Circuit A
@@ -53,7 +53,7 @@ def sampleCircuitA(layer=1, qubits=4):
         circuit.barrier()
         
         for i in range(qubits):
-            circuit.u3(theta, phi, lamb, i)
+            circuit.u3(np.random.uniform(0, 2 * np.pi), np.random.uniform(0, 2 * np.pi), np.random.uniform(0, 2 * np.pi), i)
 
     return circuit
 
@@ -74,7 +74,7 @@ def sampleCircuitB1(layer=1, qubits=4):
     circuit = QuantumCircuit(qubits)
     
     for i in range(qubits):
-        circuit.u1(theta, i)
+        circuit.u1(np.random.uniform(0, 2 * np.pi), i)
     
     for i in range(layer):
         for j in range(qubits - 1):
@@ -84,7 +84,7 @@ def sampleCircuitB1(layer=1, qubits=4):
         circuit.barrier()
         
         for j in range(qubits):
-            circuit.u1(theta, j)
+            circuit.u1(np.random.uniform(0, 2 * np.pi), j)
 
     return circuit
 
@@ -96,7 +96,7 @@ def sampleCircuitB2(layer=1, qubits=4):
     circuit = QuantumCircuit(qubits)
     
     for i in range(qubits):
-        circuit.u2(phi, lamb, i)
+        circuit.u2(np.random.uniform(0, 2 * np.pi), np.random.uniform(0, 2 * np.pi), i)
     
     for i in range(layer):
         for j in range(qubits - 1):
@@ -107,7 +107,7 @@ def sampleCircuitB2(layer=1, qubits=4):
         
         
         for j in range(qubits):
-            circuit.u2(phi, lamb, j)
+            circuit.u2(np.random.uniform(0, 2 * np.pi), np.random.uniform(0, 2 * np.pi), j)
 
     return circuit
 
@@ -119,7 +119,7 @@ def sampleCircuitB3(layer=1, qubits=4):
     circuit = QuantumCircuit(qubits)
     
     for i in range(qubits):
-        circuit.u3(theta, phi, lamb, i)
+        circuit.u3(np.random.uniform(0, 2 * np.pi), np.random.uniform(0, 2 * np.pi), np.random.uniform(0, 2 * np.pi), i)
     
     for i in range(layer):
         for j in range(qubits - 1):
@@ -129,7 +129,7 @@ def sampleCircuitB3(layer=1, qubits=4):
         circuit.barrier()
         
         for j in range(qubits):
-            circuit.u3(theta, phi, lamb, j)
+            circuit.u3(np.random.uniform(0, 2 * np.pi), np.random.uniform(0, 2 * np.pi), np.random.uniform(0, 2 * np.pi), j)
         
     return circuit
 
@@ -165,21 +165,21 @@ def sampleCircuitC(layer=1, qubits=4):
     
     for i in range(layer):
         for j in range(qubits):
-            circuit.ry(theta, j)
+            circuit.ry(np.random.uniform(0, 2 * np.pi), j)
             
-        circuit.crx(theta, qubits - 1, 0)
+        circuit.crx(np.random.uniform(0, 2 * np.pi), qubits - 1, 0)
         for j in range(qubits - 1, 0, -1):
-            circuit.crx(theta, j - 1, j)
+            circuit.crx(np.random.uniform(0, 2 * np.pi), j - 1, j)
         
         circuit.barrier()
         
         for j in range(qubits):
-            circuit.ry(theta, j)
+            circuit.ry(np.random.uniform(0, 2 * np.pi), j)
             
-        circuit.crx(theta, 3, 2)
-        circuit.crx(theta, 0, 3)
-        circuit.crx(theta, 1, 0)
-        circuit.crx(theta, 2, 1)
+        circuit.crx(np.random.uniform(0, 2 * np.pi), 3, 2)
+        circuit.crx(np.random.uniform(0, 2 * np.pi), 0, 3)
+        circuit.crx(np.random.uniform(0, 2 * np.pi), 1, 0)
+        circuit.crx(np.random.uniform(0, 2 * np.pi), 2, 1)
         
     return circuit
 
@@ -201,18 +201,18 @@ def sampleCircuitD(layer=1, qubits=4):
     
     for i in range(layer):
         for j in range(qubits):
-            circuit.rx(theta, j)
-            circuit.rz(theta, j)
+            circuit.rx(np.random.uniform(0, 2 * np.pi), j)
+            circuit.rz(np.random.uniform(0, 2 * np.pi), j)
             
         for j in range(qubits - 1, -1, -1):
             for k in range(qubits - 1, -1, -1):
                 if j != k:
-                    circuit.crx(theta, j, k)
+                    circuit.crx(np.random.uniform(0, 2 * np.pi), j, k)
         circuit.barrier()
             
         for j in range(qubits):
-            circuit.rx(theta, j)
-            circuit.rz(theta, j)
+            circuit.rx(np.random.uniform(0, 2 * np.pi), j)
+            circuit.rz(np.random.uniform(0, 2 * np.pi), j)
         
     return circuit
 
@@ -234,18 +234,18 @@ def sampleCircuitE(layer=1, qubits=4):
 
     for i in range(layer):
         for j in range(qubits):
-            circuit.rx(theta, j)
-            circuit.rz(theta, j)
+            circuit.rx(np.random.uniform(0, 2 * np.pi), j)
+            circuit.rz(np.random.uniform(0, 2 * np.pi), j)
             
         for j in range(1, qubits, 2):
-            circuit.crx(theta, j, j - 1)
+            circuit.crx(np.random.uniform(0, 2 * np.pi), j, j - 1)
         
         for j in range(qubits):
-            circuit.rx(theta, j)
-            circuit.rz(theta, j)
+            circuit.rx(np.random.uniform(0, 2 * np.pi), j)
+            circuit.rz(np.random.uniform(0, 2 * np.pi), j)
         
         for j in range(2, qubits, 2):
-            circuit.crx(theta, j, j - 1)
+            circuit.crx(np.random.uniform(0, 2 * np.pi), j, j - 1)
         
     return circuit
 
@@ -267,12 +267,12 @@ def sampleCircuitF(layer=1, qubits=4):
     
     for i in range(layer):
         for j in range(qubits):
-            circuit.rx(theta, j)
-            circuit.rz(theta, j)
+            circuit.rx(np.random.uniform(0, 2 * np.pi), j)
+            circuit.rz(np.random.uniform(0, 2 * np.pi), j)
             
-        circuit.crx(theta, qubits - 1, 0)
+        circuit.crx(np.random.uniform(0, 2 * np.pi), qubits - 1, 0)
         for j in range(qubits - 1, 0, -1):
-            circuit.crx(theta, j - 1, j)
+            circuit.crx(np.random.uniform(0, 2 * np.pi), j - 1, j)
 
     return circuit
 
@@ -296,7 +296,7 @@ def sampleEncoding(qubits):
     
     for i in range(qubits):
         circuit.h(i)
-        circuit.ry(theta, i)
+        circuit.ry(np.random.uniform(0, 2 * np.pi), i)
         
     return circuit
 
